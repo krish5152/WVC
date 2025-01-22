@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "FunctionApp_sonarlint": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7053",
+      "launchBrowser": false
+    }
+  }
+}
