@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
@@ -43,7 +43,7 @@
     <AdditionalFiles Include=".editorconfig" />
   </ItemGroup>
 
-
+  <!-- Run SonarLint Check Only in Visual Studio -->
   <Target Name="CheckSonarLintInVS" BeforeTargets="Build" Condition="'$(BuildingInsideVisualStudio)' == 'true'">
     <Message Importance="high" Text="Checking if SonarLint folder exists..." />
     <ItemGroup>
@@ -52,17 +52,14 @@
     <Error Condition="!Exists(@(SonarLintPath))" Text="SonarLint extension is not installed. Please install SonarLint to proceed." />
   </Target>
 
-
+  <!-- SonarLint Package -->
   <ItemGroup>
     <PackageReference Include="SonarAnalyzer.CSharp" Version="9.32.0.97167" />
   </ItemGroup>
 
-
-  
-<!--    
-  <Target Name="CheckSonarLint" BeforeTargets="Build">
-	<Exec Command="powershell -ExecutionPolicy Bypass -File .\Check-SonarLint.ps1 visualstudio" />
-</Target>
- --> 
-
+  <!-- Skip .editorconfig Rules in ADO Pipeline -->
+  <PropertyGroup Condition="'$(TF_BUILD)' == 'True'">
+    <CodeAnalysisRuleSet>None</CodeAnalysisRuleSet>
+    <EnforceCodeStyleInBuild>False</EnforceCodeStyleInBuild>
+  </PropertyGroup>
 </Project>
