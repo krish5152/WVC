@@ -21,6 +21,23 @@ dotnet_diagnostic.S131.severity = error   # Switch statements should end with a 
 dotnet_diagnostic.S138.severity = error   # Methods should not have too many lines of code
 dotnet_diagnostic.S2221.severity = error  # Catch Exception should be more specific
 
+#Testing purpose new rules#
+# General Settings
+dotnet_analyzer_diagnostic.severity = error
+
+# Treat Specific Rules as Errors
+#dotnet_diagnostic.S112.severity = error  # Do not throw general exceptions
+#dotnet_diagnostic.S100.severity = error  # Naming convention for methods
+#dotnet_diagnostic.S3776.severity = error  # Limit code complexity
+#dotnet_diagnostic.S1192.severity = error  # Avoid duplicate string literals
+#dotnet_diagnostic.S1854.severity = error  # Remove dead stores
+#dotnet_diagnostic.S1168.severity = error  # Avoid returning null
+#dotnet_diagnostic.S108.severity = error   # Avoid public nested types
+#dotnet_diagnostic.S3928.severity = error  # Always check method return values
+#dotnet_diagnostic.S2092.severity = error  # Secure critical data transmission
+#dotnet_diagnostic.S2328.severity = error  # Dispose resources properly
+#dotnet_diagnostic.S2823.severity = error  # Handle exceptions in catch blocks
+
 
 
 #### Core EditorConfig Options ####
