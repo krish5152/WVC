@@ -23,7 +23,7 @@ dotnet_diagnostic.S2221.severity = error  # Catch Exception should be more speci
 
 #Testing purpose new rules#
 # General Settings
-dotnet_analyzer_diagnostic.severity = error
+#dotnet_analyzer_diagnostic.severity = error
 
 # Treat Specific Rules as Errors
 #dotnet_diagnostic.S112.severity = error  # Do not throw general exceptions
